@@ -13,33 +13,30 @@ import {
 
 type TCustomInput = TextInputProps & {
   type: "email" | "password";
+  title: string;
 };
 
 type TInput = {
-  title: string;
   icon: defaultIcon;
   password?: boolean;
 };
 
-const CustomInput: React.FC<TCustomInput> = ({ type, ...rest }) => {
+const CustomInput: React.FC<TCustomInput> = ({ type, title, ...rest }) => {
   let input = {} as TInput;
   switch (type) {
     case "email":
       input = {
-        title: "Email",
         icon: require("../../assets/icons/Message.png"),
       };
       break;
     case "password":
       input = {
-        title: "Password",
         icon: require("../../assets/icons/Lock.png"),
         password: true,
       };
       break;
     default:
       input = {
-        title: "Input",
         icon: require("../../assets/icons/Info Circle.png"),
       };
       break;
@@ -54,7 +51,7 @@ const CustomInput: React.FC<TCustomInput> = ({ type, ...rest }) => {
           width={24}
           height={24}
         />
-        <Title>{input.title}</Title>
+        <Title>{title}</Title>
       </InfoContainer>
 
       <StyledInput

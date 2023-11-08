@@ -3,7 +3,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreenExpo from "expo-splash-screen";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Login, SplashScreen } from "./src/screens";
+import { Login, SignUp, SplashScreen } from "./src/screens";
 
 SplashScreenExpo.preventAutoHideAsync();
 
@@ -42,7 +42,8 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       {/* <SplashScreen /> */}
-      <Login />
+      {/* <Login /> */}
+      <SignUp />
     </View>
   );
 }

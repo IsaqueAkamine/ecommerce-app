@@ -3,29 +3,27 @@ import React from "react";
 import CustomInput from "../../components/CustomInput";
 
 import {
-  ButtonLogin,
+  ButtonSignUp,
   Container,
-  CreateAccountButton,
-  CreateAccountText,
-  ForgotButton,
-  ForgotText,
   FormContainer,
   FormTitle,
   InputsContainer,
+  LoginButton,
+  LoginText,
   Title,
   TitleContainer,
 } from "./styles";
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
     <Container>
       <TitleContainer>
-        <Title type="title">Welcome</Title>
-        <Title type="title">back</Title>
+        <Title type="title">Sign up</Title>
+        <Title type="title">and enjoy</Title>
       </TitleContainer>
 
       <FormContainer>
-        <FormTitle>Login</FormTitle>
+        <FormTitle>Sign Up</FormTitle>
 
         <InputsContainer>
           <CustomInput
@@ -38,20 +36,21 @@ const Login: React.FC = () => {
             placeholder="password"
             type="password"
           />
+          <CustomInput
+            title="Confirm password"
+            placeholder="confirm password"
+            type="password"
+          />
         </InputsContainer>
 
-        <ForgotButton>
-          <ForgotText>Forgot password?</ForgotText>
-        </ForgotButton>
+        <ButtonSignUp description="Sign Up" theme="dark" />
 
-        <ButtonLogin description="Login" theme="dark" />
-
-        <CreateAccountButton>
-          <CreateAccountText>Create account</CreateAccountText>
-        </CreateAccountButton>
+        <LoginButton>
+          <LoginText>Login</LoginText>
+        </LoginButton>
       </FormContainer>
     </Container>
   );
 };
 
-export default Login;
+export default SignUp;
