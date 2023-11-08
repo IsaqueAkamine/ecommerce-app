@@ -3,8 +3,9 @@ import { useFonts } from "expo-font";
 import * as SplashScreenExpo from "expo-splash-screen";
 import { StyleSheet, Text, View } from "react-native";
 
+import { Login, SplashScreen } from "./src/screens";
+
 SplashScreenExpo.preventAutoHideAsync();
-import SplashScreen from "./src/screens/SplashScreen";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -40,15 +41,8 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      {/* <Text style={{ fontFamily: "Raleway-Regular", fontSize: 30 }}>
-        Inter Black
-      </Text>
-      <Text style={{ fontSize: 30 }}>Platform Default</Text>
-      <Text style={{ fontFamily: "Raleway-Bold", fontSize: 30 }}>
-        Platform Default
-      </Text> */}
-
-      <SplashScreen />
+      {/* <SplashScreen /> */}
+      <Login />
     </View>
   );
 }
