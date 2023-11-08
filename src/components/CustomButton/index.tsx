@@ -5,12 +5,17 @@ import { Container, Title } from "./styles";
 
 type TCustomButton = TouchableOpacityProps & {
   description: string;
+  theme?: "light" | "dark";
 };
 
-const CustomButton: React.FC<TCustomButton> = ({ description, ...rest }) => {
+const CustomButton: React.FC<TCustomButton> = ({
+  description,
+  theme = "light",
+  ...rest
+}) => {
   return (
-    <Container {...rest}>
-      <Title>{description}</Title>
+    <Container {...rest} theme={theme}>
+      <Title theme={theme}>{description}</Title>
     </Container>
   );
 };

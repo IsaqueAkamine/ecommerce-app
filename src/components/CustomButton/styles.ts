@@ -1,8 +1,14 @@
 import styled from "styled-components/native";
 import colors from "../../constants/colors";
 
-export const Container = styled.TouchableOpacity`
-  background-color: #fff;
+type TTheme = {
+  theme: "light" | "dark";
+};
+
+export const Container = styled.TouchableOpacity<TTheme>`
+  /* background-color: #fff; */
+  background-color: ${(props) =>
+    props.theme === "light" ? "#fff" : colors.primary};
   padding: 24px 12px;
   border-radius: 10px;
   align-items: center;
@@ -10,8 +16,8 @@ export const Container = styled.TouchableOpacity`
   /* box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1); */
 `;
 
-export const Title = styled.Text`
-  color: ${colors.primary};
+export const Title = styled.Text<TTheme>`
+  color: ${(props) => (props.theme === "light" ? colors.primary : "#fff")};
   font-family: Raleway-Bold-700;
   font-size: 20px;
 `;
