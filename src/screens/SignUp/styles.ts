@@ -3,11 +3,12 @@ import styled from "styled-components/native";
 import CustomText from "../../components/CustomText";
 import colors from "../../constants/colors";
 import CustomButton from "../../components/CustomButton";
+import { SIZES } from "../../constants/sizes";
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${colors.primary};
-  padding-top: ${getStatusBarHeight() + 70}px;
+  padding-top: ${getStatusBarHeight() + SIZES.verticalScale(65)}px;
 `;
 
 export const TitleContainer = styled.View`
@@ -18,28 +19,29 @@ export const Title = styled(CustomText)``;
 
 export const FormContainer = styled.View`
   flex: 1;
-  margin-top: 62px;
+  margin-top: ${SIZES.verticalScale(56)}px;
   background-color: #fff;
-  padding: 36px 50px;
-  border-radius: 20px;
+  padding: ${SIZES.verticalScale(32)}px ${SIZES.horizontalScale(46)}px;
+  border-top-left-radius: ${SIZES.verticalScale(18)}px;
+  border-top-right-radius: ${SIZES.verticalScale(18)}px;
 `;
 
 export const FormTitle = styled.Text`
   font-family: Raleway-Bold-700;
-  font-size: 18px;
+  font-size: ${SIZES.verticalScale(16)}px;
 `;
 
 export const InputsContainer = styled.View`
-  margin-top: 40px;
-  gap: 40px;
+  margin-top: ${SIZES.verticalScale(36)}px;
+  gap: ${SIZES.verticalScale(36)}px;
 `;
 
 export const ButtonSignUp = styled(CustomButton)`
-  margin-top: 52px;
+  margin-top: ${SIZES.verticalScale(46)}px;
 `;
 
 export const LoginButton = styled.Pressable`
-  margin-top: 20px;
+  margin-top: ${SIZES.verticalScale(18)}px;
 `;
 
 export const LoginText = styled.Text`

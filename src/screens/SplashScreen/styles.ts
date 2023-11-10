@@ -5,28 +5,26 @@ import {
 import styled from "styled-components/native";
 import colors from "../../constants/colors";
 import CustomText from "../../components/CustomText";
+import { SIZES } from "../../constants/sizes";
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${colors.primary};
   align-items: center;
-  padding-top: ${getStatusBarHeight() + 40}px;
-  padding-bottom: ${getBottomSpace() + 100}px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-top: ${getStatusBarHeight() + SIZES.verticalScale(36)}px;
+  padding-left: ${SIZES.verticalScale(46)}px;
+  padding-right: ${SIZES.verticalScale(46)}px;
 `;
 
 export const Title = styled(CustomText)``;
 
 export const Image = styled.Image`
   width: 100%;
-  aspect-ratio: 1;
+  height: 60%;
 `;
 
 export const ButtonContainer = styled.View`
   flex: 1;
   width: 100%;
-  /* background-color: ${colors.primary}50; */
-  padding: 50px 0 0 0;
-  margin-top: -10px;
+  padding: ${SIZES.verticalScale(46)}px 0 0 0;
 `;

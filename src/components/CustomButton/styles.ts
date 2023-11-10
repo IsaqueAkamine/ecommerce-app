@@ -1,23 +1,22 @@
 import styled from "styled-components/native";
 import colors from "../../constants/colors";
+import { SIZES } from "../../constants/sizes";
 
 type TTheme = {
   theme: "light" | "dark";
 };
 
 export const Container = styled.TouchableOpacity<TTheme>`
-  /* background-color: #fff; */
   background-color: ${(props) =>
     props.theme === "light" ? "#fff" : colors.primary};
-  padding: 24px 12px;
-  border-radius: 10px;
+  padding: ${SIZES.verticalScale(22)}px ${SIZES.horizontalScale(11)}px;
+  border-radius: ${SIZES.verticalScale(9)}px;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1); */
 `;
 
 export const Title = styled.Text<TTheme>`
   color: ${(props) => (props.theme === "light" ? colors.primary : "#fff")};
   font-family: Raleway-Bold-700;
-  font-size: 20px;
+  font-size: ${SIZES.verticalScale(18)}px;
 `;

@@ -1,31 +1,32 @@
 import styled from "styled-components/native";
+import { SIZES } from "../../constants/sizes";
 
 export const Container = styled.View`
-  gap: 8px;
-  border-bottom-width: 1px;
+  gap: ${SIZES.verticalScale(7)}px;
+  border-bottom-width: ${SIZES.verticalScale(1)}px;
   border-bottom-color: #c9c9c9;
-  padding-bottom: 8px;
+  padding-bottom: ${SIZES.verticalScale(7)}px;
 `;
 
 export const StyledIcon = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: ${SIZES.horizontalScale(21)}px;
+  height: ${SIZES.verticalScale(21)}px;
 `;
 
 export const InfoContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: ${SIZES.verticalScale(7)}px;
 `;
 
 export const Title = styled.Text`
   font-family: Raleway-SemiBold-600;
   color: #868686;
-  font-size: 15px;
+  font-size: ${SIZES.verticalScale(14)}px;
 `;
 
 export const StyledInput = styled.TextInput`
   font-family: Raleway-SemiBold-600;
-  font-size: 17px;
-  padding: 4px 0;
+  font-size: ${SIZES.verticalScale(16)}px;
+  padding: ${SIZES.verticalScale(3)}px 0;
 `;
