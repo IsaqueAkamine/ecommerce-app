@@ -1,5 +1,6 @@
+import ForgotPassword from "./ForgotPassword";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import SplashScreen from "./SplashScreen";
 
-export { Login, SignUp, SplashScreen };
+export { ForgotPassword, Login, SignUp, SplashScreen };
