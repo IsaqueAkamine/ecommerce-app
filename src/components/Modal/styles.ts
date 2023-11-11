@@ -1,14 +1,15 @@
+import { Animated } from "react-native";
 import styled from "styled-components/native";
 import { SIZES } from "../../constants/sizes";
 
-export const Container = styled.View`
+export const Container = styled(Animated.View)`
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-export const StyledModal = styled.View`
+export const StyledModal = styled(Animated.View)`
   position: absolute;
   bottom: 0;
   height: 50%;

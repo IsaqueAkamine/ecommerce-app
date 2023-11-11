@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   ButtonResetPassword,
@@ -19,6 +19,8 @@ import CustomInput from "../../components/CustomInput";
 import Modal from "../../components/Modal";
 
 const ForgotPassword: React.FC = () => {
+  const [modal, setModal] = useState(false);
+
   const ModalInfo = () => {
     return (
       <ModalContainer>
@@ -27,9 +29,17 @@ const ForgotPassword: React.FC = () => {
           We sent you an email. Tap the link in that email to reset your
           password.
         </ModalInfoText>
-        <ModalButtonConfirm description="Got it" theme="dark" />
+        <ModalButtonConfirm
+          description="Got it"
+          theme="dark"
+          onPress={() => setModal(false)}
+        />
       </ModalContainer>
     );
+  };
+
+  const handleResetPassword = () => {
+    setModal(true);
   };
 
   return (
@@ -56,13 +66,17 @@ const ForgotPassword: React.FC = () => {
           />
         </InputsContainer>
 
-        <ButtonResetPassword description="Reset password" theme="dark" />
+        <ButtonResetPassword
+          description="Reset password"
+          theme="dark"
+          onPress={handleResetPassword}
+        />
 
         <LoginButton>
           <LoginText>Login</LoginText>
         </LoginButton>
       </FormContainer>
-      <Modal>
+      <Modal show={modal} close={() => setModal(false)}>
         <ModalInfo />
       </Modal>
     </Container>
