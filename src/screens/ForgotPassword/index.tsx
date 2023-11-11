@@ -10,10 +10,28 @@ import {
   LoginText,
   Title,
   TitleContainer,
+  ModalButtonConfirm,
+  ModalTitle,
+  ModalContainer,
+  ModalInfoText,
 } from "./styles";
 import CustomInput from "../../components/CustomInput";
+import Modal from "../../components/Modal";
 
 const ForgotPassword: React.FC = () => {
+  const ModalInfo = () => {
+    return (
+      <ModalContainer>
+        <ModalTitle>You’ve got an email</ModalTitle>
+        <ModalInfoText>
+          We sent you an email. Tap the link in that email to reset your
+          password.
+        </ModalInfoText>
+        <ModalButtonConfirm description="Got it" theme="dark" />
+      </ModalContainer>
+    );
+  };
+
   return (
     <Container>
       <TitleContainer>
@@ -44,6 +62,9 @@ const ForgotPassword: React.FC = () => {
           <LoginText>Login</LoginText>
         </LoginButton>
       </FormContainer>
+      <Modal>
+        <ModalInfo />
+      </Modal>
     </Container>
   );
 };

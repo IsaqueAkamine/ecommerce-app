@@ -8,11 +8,10 @@ import CustomButton from "../../components/CustomButton";
 export const Container = styled.View`
   flex: 1;
   background-color: ${colors.primary};
-  padding-top: ${getStatusBarHeight() + SIZES.verticalScale(65)}px;
 `;
 
 export const TitleContainer = styled.View`
-  padding: 0 10%;
+  padding: ${getStatusBarHeight() + SIZES.verticalScale(65)}px 10% 0 10%;
 `;
 
 export const Title = styled(CustomText)``;
@@ -21,7 +20,7 @@ export const FormContainer = styled.View`
   flex: 1;
   margin-top: ${SIZES.verticalScale(56)}px;
   background-color: #fff;
-  padding: ${SIZES.verticalScale(32)}px ${SIZES.horizontalScale(46)}px;
+  padding: ${SIZES.verticalScale(32)}px 10%;
   border-top-left-radius: ${SIZES.verticalScale(18)}px;
   border-top-right-radius: ${SIZES.verticalScale(18)}px;
 `;
@@ -46,7 +45,28 @@ export const LoginButton = styled.Pressable`
 
 export const LoginText = styled.Text`
   font-family: Raleway-SemiBold-600;
-  font-size: 17px;
+  font-size: ${SIZES.verticalScale(15.5)}px;
   color: ${colors.primary};
   text-align: center;
+`;
+
+export const ModalContainer = styled.View`
+  padding: 10% 5%;
+`;
+
+export const ModalTitle = styled.Text`
+  font-family: Raleway-SemiBold-600;
+  font-size: ${SIZES.verticalScale(15.5)}px;
+`;
+
+export const ModalInfoText = styled.Text`
+  font-family: Raleway-Regular;
+  font-size: ${SIZES.verticalScale(13.5)}px;
+  line-height: ${SIZES.verticalScale(20)}px;
+  opacity: 0.5;
+  margin-top: ${SIZES.verticalScale(7)}px;
+`;
+
+export const ModalButtonConfirm = styled(CustomButton)`
+  margin-top: ${SIZES.verticalScale(46)}px;
 `;
