@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigation } from "@react-navigation/native";
 import CustomInput from "../../components/CustomInput";
 
 import {
@@ -15,6 +15,12 @@ import {
 } from "./styles";
 
 const SignUp: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    navigation.goBack();
+  };
+
   return (
     <Container>
       <TitleContainer>
@@ -45,7 +51,7 @@ const SignUp: React.FC = () => {
 
         <ButtonSignUp description="Sign Up" theme="dark" />
 
-        <LoginButton>
+        <LoginButton onPress={handleLogin}>
           <LoginText>Login</LoginText>
         </LoginButton>
       </FormContainer>

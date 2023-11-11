@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import CustomInput from "../../components/CustomInput";
 
@@ -17,6 +18,16 @@ import {
 } from "./styles";
 
 const Login: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleSignUp = () => {
+    navigation.navigate("SignUp");
+  };
+
+  const handleForgotPassword = () => {
+    navigation.navigate("ForgotPassword");
+  };
+
   return (
     <Container>
       <TitleContainer>
@@ -40,13 +51,13 @@ const Login: React.FC = () => {
           />
         </InputsContainer>
 
-        <ForgotButton>
+        <ForgotButton onPress={handleForgotPassword}>
           <ForgotText>Forgot password?</ForgotText>
         </ForgotButton>
 
         <ButtonLogin description="Login" theme="dark" />
 
-        <CreateAccountButton>
+        <CreateAccountButton onPress={handleSignUp}>
           <CreateAccountText>Create account</CreateAccountText>
         </CreateAccountButton>
       </FormContainer>

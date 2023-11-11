@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import {
   ButtonResetPassword,
@@ -19,7 +20,13 @@ import CustomInput from "../../components/CustomInput";
 import Modal from "../../components/Modal";
 
 const ForgotPassword: React.FC = () => {
+  const navigation = useNavigation();
+
   const [modal, setModal] = useState(false);
+
+  const handleLogin = () => {
+    navigation.goBack();
+  };
 
   const ModalInfo = () => {
     return (
@@ -72,7 +79,7 @@ const ForgotPassword: React.FC = () => {
           onPress={handleResetPassword}
         />
 
-        <LoginButton>
+        <LoginButton onPress={handleLogin}>
           <LoginText>Login</LoginText>
         </LoginButton>
       </FormContainer>
