@@ -24,7 +24,15 @@ const Product: React.FC<TProduct> = ({ title, image, rating, price }) => {
   return (
     <Container>
       <ProductImage source={{ uri: image }} resizeMode="cover" />
-      <ProductContainer>
+      <ProductContainer
+        style={{
+          shadowOffset: { width: 5, height: 10 },
+          shadowColor: "#393939",
+          shadowRadius: 20,
+          shadowOpacity: 0.1,
+          elevation: 2,
+        }}
+      >
         <Title numberOfLines={3}>{title}</Title>
         <InfoSection>
           <Rating>{rating.rate}</Rating>
