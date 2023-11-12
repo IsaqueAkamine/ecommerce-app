@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 
 import useApi from "../../hooks/useApi";
+
 import SearchBar from "../../components/SearchBar";
+import Category from "./Category";
+import Product from "./Product";
 
 import {
   CategoryContainer,
   Container,
   HeaderContainer,
   HeaderMenuIcon,
+  HeaderMenuIconButton,
   HeaderMenuSearchContainer,
   ProductContainer,
   Title,
   TitleContainer,
 } from "./styles";
-import Category from "./Category";
-import Product from "./Product";
 
 const Home: React.FC = () => {
   const MenuIcon = require("../../assets/icons/Menu.png");
   const { fetchData } = useApi();
   const abortController = new AbortController();
+  const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>();
 
   const [categories, setCategories] = useState(null);
   const [products, setProducts] = useState(null);
@@ -54,6 +59,10 @@ const Home: React.FC = () => {
     setSelectedCategory(category);
   };
 
+  const handleOpenDrawer = () => {
+    navigation.openDrawer();
+  };
+
   useEffect(() => {
     getCategories();
     return () => abortController.abort("Data fetching cancelled");
@@ -70,7 +79,9 @@ const Home: React.FC = () => {
     <Container>
       <HeaderContainer>
         <HeaderMenuSearchContainer>
-          <HeaderMenuIcon source={MenuIcon} />
+          <HeaderMenuIconButton onPress={handleOpenDrawer}>
+            <HeaderMenuIcon source={MenuIcon} />
+          </HeaderMenuIconButton>
           <SearchBar placeholder="Search" />
         </HeaderMenuSearchContainer>
         <TitleContainer>

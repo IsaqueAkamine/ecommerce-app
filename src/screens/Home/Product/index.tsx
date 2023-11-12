@@ -1,4 +1,9 @@
 import React from "react";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 
 import {
   Container,
@@ -20,10 +25,16 @@ type TProduct = {
   title: string;
 };
 
-const Product: React.FC<TProduct> = ({ title, image, rating, price }) => {
+const Product: React.FC<TProduct> = (item) => {
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+
+  const handleProductInfo = () => {
+    navigation.navigate("ProductInfo", { product: item });
+  };
+
   return (
-    <Container>
-      <ProductImage source={{ uri: image }} resizeMode="cover" />
+    <Container onPress={handleProductInfo}>
+      <ProductImage source={{ uri: item.image }} resizeMode="cover" />
       <ProductContainer
         style={{
           shadowOffset: { width: 5, height: 10 },
@@ -33,10 +44,10 @@ const Product: React.FC<TProduct> = ({ title, image, rating, price }) => {
           elevation: 2,
         }}
       >
-        <Title numberOfLines={3}>{title}</Title>
+        <Title numberOfLines={3}>{item.title}</Title>
         <InfoSection>
-          <Rating>{rating.rate}</Rating>
-          <Price>$ {price}</Price>
+          <Rating>{item.rating.rate}</Rating>
+          <Price>$ {item.price}</Price>
         </InfoSection>
       </ProductContainer>
     </Container>

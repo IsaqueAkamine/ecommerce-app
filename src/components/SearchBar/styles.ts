@@ -4,7 +4,7 @@ import colors from "../../constants/colors";
 
 export const Container = styled.View`
   flex: 1;
-  padding: ${SIZES.verticalScale(16)}px ${SIZES.verticalScale(18)}px;
+  padding: ${SIZES.verticalScale(14)}px ${SIZES.verticalScale(18)}px;
   border-width: ${SIZES.verticalScale(2)}px;
   border-color: ${colors.dark_third};
   border-radius: ${SIZES.verticalScale(50)}px;

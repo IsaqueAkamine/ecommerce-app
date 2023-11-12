@@ -19,6 +19,7 @@ export const HeaderMenuSearchContainer = styled.View`
   align-items: center;
 `;
 
+export const HeaderMenuIconButton = styled.Pressable``;
 export const HeaderMenuIcon = styled.Image`
   width: ${SIZES.verticalScale(20)}px;
   aspect-ratio: 1;

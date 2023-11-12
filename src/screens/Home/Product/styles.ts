@@ -2,13 +2,13 @@ import styled from "styled-components/native";
 import { SIZES } from "../../../constants/sizes";
 import colors from "../../../constants/colors";
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   align-items: center;
 `;
 
 export const ProductImage = styled.Image`
   margin: ${SIZES.verticalScale(18)}px;
-  width: ${SIZES.width / 2}px;
+  width: ${SIZES.width / 2.2}px;
   aspect-ratio: 1;
   border-radius: 500px;
   z-index: 5;
@@ -18,7 +18,7 @@ export const ProductContainer = styled.View`
   position: relative;
   background-color: #fff;
   width: ${SIZES.width / 1.5}px;
-  height: ${SIZES.verticalScale(270)}px;
+  height: ${SIZES.verticalScale(250)}px;
   border-radius: ${SIZES.verticalScale(18)}px;
   top: -${SIZES.verticalScale(110)}px;
   padding: ${SIZES.verticalScale(110)}px ${SIZES.verticalScale(21)}px
@@ -28,7 +28,7 @@ export const ProductContainer = styled.View`
 export const Title = styled.Text`
   text-align: center;
   font-family: Raleway-SemiBold-600;
-  font-size: ${SIZES.verticalScale(20)}px;
+  font-size: ${SIZES.verticalScale(16)}px;
 `;
 
 export const InfoSection = styled.View`
