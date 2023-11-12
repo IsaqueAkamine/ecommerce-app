@@ -12,6 +12,7 @@ export const ProductImage = styled.Image`
   aspect-ratio: 1;
   border-radius: 500px;
   z-index: 5;
+  background-color: #fff;
 `;
 
 export const ProductContainer = styled.View`

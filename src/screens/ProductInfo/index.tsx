@@ -24,7 +24,7 @@ const ProductInfo: React.FC = () => {
       <HeaderBar rightIcon="favorite" />
       {/* <Title>Product info</Title> */}
       <ImageListContainer>
-        <ProductImage source={{ uri: product.image }} />
+        <ProductImage source={{ uri: product.image }} resizeMode="contain" />
       </ImageListContainer>
       <InfoProductContainer>
         <Title>{product.title}</Title>

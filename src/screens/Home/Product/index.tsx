@@ -34,7 +34,7 @@ const Product: React.FC<TProduct> = (item) => {
 
   return (
     <Container onPress={handleProductInfo}>
-      <ProductImage source={{ uri: item.image }} resizeMode="cover" />
+      <ProductImage source={{ uri: item.image }} resizeMode="contain" />
       <ProductContainer
         style={{
           shadowOffset: { width: 5, height: 10 },
