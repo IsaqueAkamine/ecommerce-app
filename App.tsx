@@ -1,8 +1,9 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreenExpo from "expo-splash-screen";
 import { StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import Routes from "./src/routes";
 
@@ -42,6 +43,7 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
+      <StatusBar style="auto" />
       <Routes />
     </View>
   );
