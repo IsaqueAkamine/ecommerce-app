@@ -21,3 +21,7 @@ export const Icon = styled.Image`
   width: ${SIZES.verticalScale(22)}px;
   aspect-ratio: 1;
 `;
+
+export const RightSpace = styled.View`
+  width: ${SIZES.verticalScale(22)}px;
+`;

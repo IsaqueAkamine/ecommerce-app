@@ -1,9 +1,9 @@
 import React from "react";
-
-import { Container, Icon, Title } from "./styles";
-import SearchBar from "../SearchBar";
-import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import SearchBar from "../SearchBar";
+import { Container, Icon, RightSpace, Title } from "./styles";
 
 type THeaderBar = {
   title?: string;
@@ -30,7 +30,7 @@ const HeaderBar: React.FC<THeaderBar> = ({ title, search, rightIcon }) => {
       </Pressable>
       {title && <Title>{title}</Title>}
       {search && <SearchBar />}
-      {rightIcon && <Icon source={imgIcon} />}
+      {rightIcon ? <Icon source={imgIcon} /> : <RightSpace />}
     </Container>
   );
 };
