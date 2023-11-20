@@ -17,7 +17,7 @@ const CustomButton: React.FC<TCustomButton> = ({
   ...rest
 }) => {
   return (
-    <Container {...rest} theme={theme}>
+    <Container {...rest} theme={theme} disabled={isLoading}>
       {isLoading ? (
         <ActivityIndicator
           size="small"
