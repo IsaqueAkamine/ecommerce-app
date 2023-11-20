@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+
+import { setCredentials } from "../../redux/Auth/authSlice";
+import api from "../../services/api";
 
 import CustomInput from "../../components/CustomInput";
 
@@ -19,6 +24,11 @@ import {
 
 const Login: React.FC = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [isloading, setIsloading] = useState(false);
 
   const handleSignUp = () => {
     navigation.navigate("SignUp");
@@ -26,6 +36,26 @@ const Login: React.FC = () => {
 
   const handleForgotPassword = () => {
     navigation.navigate("ForgotPassword");
+  };
+
+  const handleLogin = () => {
+    setIsloading(true);
+    const body = {
+      username,
+      password,
+    };
+    api
+      .post("/auth/login", body)
+      .then((res) => {
+        console.log("LOGIN OK: ", res.data);
+        dispatch(
+          setCredentials({ user: username, accessToken: res?.data?.token })
+        );
+      })
+      .catch((error) => Alert.alert("Error", error.message))
+      .finally(() => {
+        setIsloading(false);
+      });
   };
 
   return (
@@ -43,11 +73,15 @@ const Login: React.FC = () => {
             title="Email"
             placeholder="email@email.com"
             type="email"
+            value={username}
+            onChangeText={setUserName}
           />
           <CustomInput
             title="Password"
             placeholder="password"
             type="password"
+            value={password}
+            onChangeText={setPassword}
           />
         </InputsContainer>
 
@@ -55,7 +89,12 @@ const Login: React.FC = () => {
           <ForgotText>Forgot password?</ForgotText>
         </ForgotButton>
 
-        <ButtonLogin description="Login" theme="dark" />
+        <ButtonLogin
+          description="Login"
+          theme="dark"
+          onPress={handleLogin}
+          isLoading={isloading}
+        />
 
         <CreateAccountButton onPress={handleSignUp}>
           <CreateAccountText>Create account</CreateAccountText>

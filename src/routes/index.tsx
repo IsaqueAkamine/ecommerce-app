@@ -2,14 +2,15 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthStack from "./AuthStack";
 import HomeStack from "./HomeStack";
-import AppDrawer from "./AppDrawer";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../redux/Auth/authSlice";
 
 export default function Routes() {
+  const user = useSelector(selectCurrentUser);
+
   return (
     <NavigationContainer>
-      {/* <AuthStack /> */}
-      {/* <HomeStack /> */}
-      <AppDrawer />
+      {user ? <HomeStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }
