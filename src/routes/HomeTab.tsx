@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home } from "../screens";
+import { Favorites, Home } from "../screens";
 import { Image } from "react-native";
 import colors from "../constants/colors";
 
@@ -24,7 +24,7 @@ export default function HomeTab() {
                 }}
               />
             );
-          } else if (route.name === "Favorite") {
+          } else if (route.name === "Favorites") {
             return (
               <Image
                 source={require("../assets/icons/Heart.png")}
@@ -65,7 +65,7 @@ export default function HomeTab() {
       })}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Favorite" component={Home} />
+      <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={Home} />
       <Tab.Screen name="Cart" component={Home} />
     </Tab.Navigator>
