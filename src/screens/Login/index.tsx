@@ -26,8 +26,8 @@ const Login: React.FC = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("johnd");
+  const [password, setPassword] = useState("m38rmF$");
   const [isloading, setIsloading] = useState(false);
 
   const handleSignUp = () => {
