@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { SIZES } from "../../constants/sizes";
+import colors from "../../constants/colors";
 
 export const Container = styled.View`
   flex: 1;
@@ -8,13 +9,9 @@ export const Container = styled.View`
 export const Title = styled.Text``;
 
 export const NoFavoriteImage = styled.Image`
-  width: 1rem;
-  height: 1rem;
+  width: auto;
+  height: auto;
   aspect-ratio: 1;
-
-  /* width: ${SIZES.horizontalScale(190)}px;
-  height: ${SIZES.horizontalScale(190)}px;
-  aspect-ratio: 1; */
 `;
 
 export const InfoSection = styled.View`
@@ -46,4 +43,37 @@ export const OrderButtonText = styled.Text`
   font-family: Raleway-Bold-700;
   font-size: ${SIZES.verticalScale(15)}px;
   color: #fff;
+`;
+
+export const FavoriteContainer = styled.View`
+  padding: 0 ${SIZES.horizontalScale(45)}px;
+  flex: 1;
+`;
+
+export const CardProduct = styled.View`
+  background-color: #fff;
+  padding: ${SIZES.verticalScale(12.5)}px ${SIZES.horizontalScale(13.5)}px;
+  border-radius: ${SIZES.verticalScale(9)}px;
+  flex-direction: row;
+  gap: ${SIZES.horizontalScale(8)}px;
+`;
+
+export const ProductImage = styled.Image`
+  width: ${SIZES.horizontalScale(50)}px;
+  aspect-ratio: 1;
+`;
+
+export const ProductInfo = styled.View`
+  flex: 1;
+`;
+
+export const ProductTitle = styled.Text`
+  font-family: Raleway-SemiBold-600;
+  font-size: ${SIZES.verticalScale(14.5)}px;
+`;
+
+export const Price = styled.Text`
+  font-size: ${SIZES.verticalScale(13.5)}px;
+  margin-top: ${SIZES.verticalScale(10.8)}px;
+  color: ${colors.primary};
 `;

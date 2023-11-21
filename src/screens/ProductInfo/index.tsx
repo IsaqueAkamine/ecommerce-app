@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 
+import { setFavorite } from "../../redux/Products/productSlice";
 import HeaderBar from "../../components/HeaderBar";
+import CustomButton from "../../components/CustomButton";
 
 import {
   Container,
@@ -14,15 +17,18 @@ import {
   TotalPrice,
   TotalText,
 } from "./styles";
-import CustomButton from "../../components/CustomButton";
 
 const ProductInfo: React.FC = () => {
   const { product } = useRoute().params;
+  const dispatch = useDispatch();
+
+  const handleAddToFavorite = () => {
+    dispatch(setFavorite(product));
+  };
 
   return (
     <Container>
-      <HeaderBar rightIcon="favorite" />
-      {/* <Title>Product info</Title> */}
+      <HeaderBar rightIcon="favorite" handleRightButton={handleAddToFavorite} />
       <ImageListContainer>
         <ProductImage source={{ uri: product.image }} resizeMode="contain" />
       </ImageListContainer>
