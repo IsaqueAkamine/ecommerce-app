@@ -17,6 +17,8 @@ export const Title = styled.Text`
   font-size: ${SIZES.verticalScale(15.5)}px;
 `;
 
+export const ButtonIcon = styled.Pressable``;
+
 export const Icon = styled.Image`
   width: ${SIZES.verticalScale(22)}px;
   aspect-ratio: 1;
