@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Favorites, Home } from "../screens";
 import { Image } from "react-native";
 import colors from "../constants/colors";
+import AppDrawer from "./AppDrawer";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ export default function HomeTab() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarIcon: ({ focused, color, size }) => {
-          if (route.name === "Home") {
+          if (route.name === "AppDrawer") {
             return (
               <Image
                 source={require("../assets/icons/Home.png")}
@@ -64,7 +65,7 @@ export default function HomeTab() {
         tabBarStyle: { backgroundColor: "transparent", borderTopWidth: 0 },
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="AppDrawer" component={AppDrawer} />
       <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={Home} />
       <Tab.Screen name="Cart" component={Home} />

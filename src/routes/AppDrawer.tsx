@@ -1,5 +1,5 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeStack from "./HomeStack";
+import { Home } from "../screens";
 
 const Drawer = createDrawerNavigator();
 
@@ -9,7 +9,7 @@ export default function AppDrawer() {
       screenOptions={{ headerShown: false }}
       initialRouteName="HomeStack"
     >
-      <Drawer.Screen name="HomeStack" component={HomeStack} />
+      <Drawer.Screen name="Home" component={Home} />
     </Drawer.Navigator>
   );
 }
