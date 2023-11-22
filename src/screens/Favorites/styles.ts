@@ -50,7 +50,7 @@ export const FavoriteContainer = styled.View`
   flex: 1;
 `;
 
-export const CardProduct = styled.View`
+export const CardProduct = styled.TouchableOpacity`
   background-color: #fff;
   padding: ${SIZES.verticalScale(12.5)}px ${SIZES.horizontalScale(13.5)}px;
   border-radius: ${SIZES.verticalScale(9)}px;

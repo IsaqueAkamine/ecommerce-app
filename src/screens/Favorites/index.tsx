@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { FlatList } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 import { useSelector } from "react-redux";
 
 import { favoriteList } from "../../redux/Products/productSlice";
@@ -25,7 +29,7 @@ import {
 } from "./styles";
 
 const Favorites: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const productList = useSelector(favoriteList);
   const NoFavoriteImg = require("../../assets/img/Sally-No-Favorite.png");
 
@@ -33,9 +37,13 @@ const Favorites: React.FC = () => {
     navigation.goBack();
   };
 
-  useEffect(() => {
-    console.log("productList", productList);
-  }, [productList]);
+  // useEffect(() => {
+  //   console.log("productList", productList);
+  // }, [productList]);
+
+  const handleProductInfo = (item) => {
+    navigation.navigate("ProductInfo", { product: item });
+  };
 
   const RenderNoFavorites = () => {
     return (
@@ -59,7 +67,7 @@ const Favorites: React.FC = () => {
         <FlatList
           data={productList}
           renderItem={({ item, index }) => (
-            <CardProduct>
+            <CardProduct onPress={() => handleProductInfo(item)}>
               <ProductImage source={{ uri: item.image }} resizeMode="contain" />
               <ProductInfo>
                 <ProductTitle numberOfLines={1}>{item.title}</ProductTitle>
