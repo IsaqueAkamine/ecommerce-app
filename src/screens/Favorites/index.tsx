@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FlatList } from "react-native";
 import {
   NavigationProp,
@@ -25,7 +25,6 @@ import {
   ProductImage,
   ProductInfo,
   ProductTitle,
-  Title,
 } from "./styles";
 
 const Favorites: React.FC = () => {
@@ -36,10 +35,6 @@ const Favorites: React.FC = () => {
   const handleStartOrdering = () => {
     navigation.goBack();
   };
-
-  // useEffect(() => {
-  //   console.log("productList", productList);
-  // }, [productList]);
 
   const handleProductInfo = (item) => {
     navigation.navigate("ProductInfo", { product: item });
