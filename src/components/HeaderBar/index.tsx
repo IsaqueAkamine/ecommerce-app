@@ -9,6 +9,7 @@ type THeaderBar = {
   title?: string;
   search?: boolean;
   rightIcon?: string;
+  rightIconColor?: string;
   handleRightButton?: () => void;
 };
 
@@ -16,6 +17,7 @@ const HeaderBar: React.FC<THeaderBar> = ({
   title,
   search,
   rightIcon,
+  rightIconColor,
   handleRightButton,
 }) => {
   const navigation = useNavigation();
@@ -43,7 +45,7 @@ const HeaderBar: React.FC<THeaderBar> = ({
   const RenderRightIcon = () => {
     return rightIcon ? (
       <ButtonIcon onPress={handleRightButton}>
-        <Icon source={imgIcon} />
+        <Icon source={imgIcon} tintColor={rightIconColor} />
       </ButtonIcon>
     ) : (
       <RightSpace />

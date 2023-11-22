@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { setFavorite } from "../../redux/Products/productSlice";
+import { favoriteList, setFavorite } from "../../redux/Products/productSlice";
 import HeaderBar from "../../components/HeaderBar";
 import CustomButton from "../../components/CustomButton";
 
@@ -17,18 +17,32 @@ import {
   TotalPrice,
   TotalText,
 } from "./styles";
+import colors from "../../constants/colors";
 
 const ProductInfo: React.FC = () => {
   const { product } = useRoute().params;
+  const favList = useSelector(favoriteList);
   const dispatch = useDispatch();
 
   const handleAddToFavorite = () => {
     dispatch(setFavorite(product));
   };
 
+  const iconColor = () => {
+    const selectedProduct = favList.find((item) => item.id === product.id);
+    if (selectedProduct) return colors.favorite_primary;
+    else {
+      return colors.favorite_secondary;
+    }
+  };
+
   return (
     <Container>
-      <HeaderBar rightIcon="favorite" handleRightButton={handleAddToFavorite} />
+      <HeaderBar
+        rightIcon="favorite"
+        rightIconColor={iconColor()}
+        handleRightButton={handleAddToFavorite}
+      />
       <ImageListContainer>
         <ProductImage source={{ uri: product.image }} resizeMode="contain" />
       </ImageListContainer>
