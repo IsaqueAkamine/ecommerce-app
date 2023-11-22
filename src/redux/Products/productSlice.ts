@@ -10,7 +10,16 @@ const productsSlice = createSlice({
   reducers: {
     setFavorite: (state, action) => {
       const product = action.payload;
-      state.favorites.push(product);
+      const favoriteProduct = state.favorites.find(
+        (item) => item?.id === product.id
+      );
+      if (favoriteProduct) {
+        state.favorites = state.favorites.filter(
+          (item) => item.id !== favoriteProduct.id
+        );
+      } else {
+        state.favorites.push(product);
+      }
     },
   },
 });
