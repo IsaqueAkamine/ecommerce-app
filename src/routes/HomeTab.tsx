@@ -62,7 +62,10 @@ export default function HomeTab() {
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: "gray",
-        tabBarStyle: { backgroundColor: "transparent", borderTopWidth: 0 },
+        tabBarStyle: {
+          backgroundColor: colors.background_gray,
+          borderTopWidth: 0,
+        },
       })}
     >
       <Tab.Screen name="AppDrawer" component={AppDrawer} />

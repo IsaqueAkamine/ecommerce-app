@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { SIZES } from "../../constants/sizes";
 import colors from "../../constants/colors";
 import { getBottomSpace } from "react-native-iphone-x-helper";
+import { Platform } from "react-native";
 
 export const Container = styled.View`
   flex: 1;
@@ -21,6 +22,7 @@ export const ProductImage = styled.Image`
 export const InfoProductContainer = styled.View`
   flex: 1;
   margin-top: ${SIZES.verticalScale(38)}px;
+  margin-bottom: ${Platform.OS === "android" ? SIZES.verticalScale(10) : 0}px;
   background-color: #fff;
   border-top-left-radius: ${SIZES.verticalScale(20)}px;
   border-top-right-radius: ${SIZES.verticalScale(20)}px;
