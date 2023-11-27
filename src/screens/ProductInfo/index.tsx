@@ -3,6 +3,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { favoriteList, setFavorite } from "../../redux/Products/productSlice";
+import { addToCart } from "../../redux/Cart/cartSlice";
+import colors from "../../constants/colors";
 import HeaderBar from "../../components/HeaderBar";
 import CustomButton from "../../components/CustomButton";
 
@@ -17,7 +19,6 @@ import {
   TotalPrice,
   TotalText,
 } from "./styles";
-import colors from "../../constants/colors";
 
 const ProductInfo: React.FC = () => {
   const { product } = useRoute().params;
@@ -26,6 +27,10 @@ const ProductInfo: React.FC = () => {
 
   const handleAddToFavorite = () => {
     dispatch(setFavorite(product));
+  };
+
+  const handleAddtoCart = () => {
+    dispatch(addToCart(product));
   };
 
   const iconColor = () => {
@@ -55,7 +60,11 @@ const ProductInfo: React.FC = () => {
           <TotalPrice>$ {product.price}</TotalPrice>
         </TotalContainer>
 
-        <CustomButton description="Add to basket" theme="dark" />
+        <CustomButton
+          description="Add to basket"
+          theme="dark"
+          onPress={handleAddtoCart}
+        />
       </InfoProductContainer>
     </Container>
   );

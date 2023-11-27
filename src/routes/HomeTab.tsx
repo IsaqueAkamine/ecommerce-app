@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Favorites, Home } from "../screens";
+import { Cart, Favorites, Home } from "../screens";
 import { Image } from "react-native";
 import colors from "../constants/colors";
 import AppDrawer from "./AppDrawer";
@@ -71,7 +71,7 @@ export default function HomeTab() {
       <Tab.Screen name="AppDrawer" component={AppDrawer} />
       <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={Home} />
-      <Tab.Screen name="Cart" component={Home} />
+      <Tab.Screen name="Cart" component={Cart} />
     </Tab.Navigator>
   );
 }
