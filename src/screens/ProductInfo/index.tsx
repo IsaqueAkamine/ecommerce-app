@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
+import Toast from "react-native-toast-message";
 
 import { favoriteList, setFavorite } from "../../redux/Products/productSlice";
 import { addToCart } from "../../redux/Cart/cartSlice";
@@ -31,6 +32,11 @@ const ProductInfo: React.FC = () => {
 
   const handleAddtoCart = () => {
     dispatch(addToCart({ ...product, quantity: 1 }));
+
+    Toast.show({
+      type: "success",
+      text1: "Added successfully",
+    });
   };
 
   const iconColor = () => {
@@ -66,6 +72,7 @@ const ProductInfo: React.FC = () => {
           onPress={handleAddtoCart}
         />
       </InfoProductContainer>
+      <Toast />
     </Container>
   );
 };
