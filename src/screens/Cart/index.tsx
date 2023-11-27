@@ -1,13 +1,17 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   NavigationProp,
   ParamListBase,
   useNavigation,
 } from "@react-navigation/native";
 
-import { cartList } from "../../redux/Cart/cartSlice";
+import {
+  cartList,
+  changeQuantity,
+  clearBasket,
+} from "../../redux/Cart/cartSlice";
 import HeaderBar from "../../components/HeaderBar";
 import QuantityButton from "../../components/QuantityButton";
 import colors from "../../constants/colors";
@@ -33,12 +37,17 @@ import {
 
 const Cart: React.FC = () => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const dispatch = useDispatch();
   const cartProductList = useSelector(cartList);
 
   const NoFavoriteImg = require("../../assets/img/Saly-No-Cart.png");
 
   const handleStartOrdering = () => {
     navigation.goBack();
+  };
+
+  const handleClearBasket = () => {
+    dispatch(clearBasket());
   };
 
   const RenderNoCartProducts = () => {
@@ -57,6 +66,24 @@ const Cart: React.FC = () => {
     );
   };
 
+  const handleDecreaseQuantity = (id: number) => {
+    dispatch(
+      changeQuantity({
+        productId: id,
+        amount: -1,
+      })
+    );
+  };
+
+  const handleIncreaseQuantity = (id: number) => {
+    dispatch(
+      changeQuantity({
+        productId: id,
+        amount: 1,
+      })
+    );
+  };
+
   const RenderCard = ({ item }) => {
     return (
       <CardContainer>
@@ -67,7 +94,11 @@ const Cart: React.FC = () => {
 
           <QuantityContainer>
             <QuantityText>Quantity</QuantityText>
-            <QuantityButton />
+            <QuantityButton
+              quantity={item.quantity}
+              handleDecrease={() => handleDecreaseQuantity(item.id)}
+              handleIncrease={() => handleIncreaseQuantity(item.id)}
+            />
           </QuantityContainer>
         </InfoContainer>
       </CardContainer>
@@ -105,6 +136,7 @@ const Cart: React.FC = () => {
         title="Basket"
         rightIcon="delete"
         rightIconColor={colors.favorite_primary}
+        handleRightButton={handleClearBasket}
       />
       <RenderBasket />
     </Container>

@@ -30,7 +30,7 @@ const ProductInfo: React.FC = () => {
   };
 
   const handleAddtoCart = () => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   const iconColor = () => {
