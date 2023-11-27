@@ -5,7 +5,7 @@ import { SIZES } from "../../constants/sizes";
 export const Container = styled.View`
   margin-top: ${getStatusBarHeight() + SIZES.verticalScale(14)}px;
   flex-direction: row;
-  padding: 0 ${SIZES.horizontalScale(35)}px;
+  padding: 0 ${SIZES.horizontalScale(25)}px;
   height: ${SIZES.verticalScale(54)}px;
   align-items: center;
   gap: ${SIZES.horizontalScale(15)}px;

@@ -26,6 +26,9 @@ const HeaderBar: React.FC<THeaderBar> = ({
     case "favorite":
       imgIcon = require("../../assets/icons/Heart.png");
       break;
+    case "delete":
+      imgIcon = require("../../assets/icons/Delete.png");
+      break;
 
     default:
       imgIcon = require("../../assets/icons/Info Circle.png");
