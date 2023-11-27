@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { Alert, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   NavigationProp,
@@ -47,7 +47,19 @@ const Cart: React.FC = () => {
   };
 
   const handleClearBasket = () => {
-    dispatch(clearBasket());
+    Alert.alert("Are you sure?", "You want to clear basket?", [
+      {
+        text: "Cancel",
+        style: "default",
+      },
+      {
+        text: "Confirm",
+        style: "destructive",
+        onPress: () => {
+          dispatch(clearBasket());
+        },
+      },
+    ]);
   };
 
   const RenderNoCartProducts = () => {
