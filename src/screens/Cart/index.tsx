@@ -39,6 +39,7 @@ const Cart: React.FC = () => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const dispatch = useDispatch();
   const cartProductList = useSelector(cartList);
+  const hasProducts = cartProductList.length > 0;
 
   const NoFavoriteImg = require("../../assets/img/Saly-No-Cart.png");
 
@@ -135,7 +136,7 @@ const Cart: React.FC = () => {
   };
 
   const RenderBasket = () => {
-    if (cartProductList.length > 0) {
+    if (hasProducts) {
       return <RenderCartProducts />;
     } else {
       return <RenderNoCartProducts />;
@@ -146,7 +147,7 @@ const Cart: React.FC = () => {
     <Container>
       <HeaderBar
         title="Basket"
-        rightIcon="delete"
+        rightIcon={hasProducts ? "delete" : ""}
         rightIconColor={colors.favorite_primary}
         handleRightButton={handleClearBasket}
       />
