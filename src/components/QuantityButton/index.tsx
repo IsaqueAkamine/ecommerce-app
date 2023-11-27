@@ -3,14 +3,24 @@ import { View } from "react-native";
 
 import { ButtonContainer, ButtonText, Container, Quantity } from "./styles";
 
-const QuantityButton: React.FC = () => {
+type TQuantityButton = {
+  quantity: number;
+  handleIncrease: () => void;
+  handleDecrease: () => void;
+};
+
+const QuantityButton: React.FC<TQuantityButton> = ({
+  quantity,
+  handleDecrease,
+  handleIncrease,
+}) => {
   return (
     <Container>
-      <ButtonContainer>
+      <ButtonContainer onPress={handleDecrease}>
         <ButtonText>-</ButtonText>
       </ButtonContainer>
-      <Quantity>1</Quantity>
-      <ButtonContainer>
+      <Quantity>{quantity}</Quantity>
+      <ButtonContainer onPress={handleIncrease}>
         <ButtonText>+</ButtonText>
       </ButtonContainer>
     </Container>
