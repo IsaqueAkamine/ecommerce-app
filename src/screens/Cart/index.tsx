@@ -126,9 +126,11 @@ const Cart: React.FC = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <RenderCard item={item} />}
           style={{ flex: 1 }}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={{
             paddingTop: SIZES.verticalScale(14.5),
             gap: SIZES.verticalScale(14.5),
+            paddingBottom: SIZES.paddingBottom,
           }}
         />
       </CartContainer>

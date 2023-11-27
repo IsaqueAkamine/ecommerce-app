@@ -69,9 +69,21 @@ export default function HomeTab() {
       })}
     >
       <Tab.Screen name="AppDrawer" component={AppDrawer} />
-      <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Profile" component={Home} />
-      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Home}
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{ tabBarStyle: { display: "none" } }}
+      />
     </Tab.Navigator>
   );
 }
