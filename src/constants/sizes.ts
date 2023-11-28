@@ -8,13 +8,14 @@ const { width, height } = Dimensions.get("window");
 const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
-const paddingTop = getStatusBarHeight();
-const paddingBottom = getBottomSpace();
-
 const horizontalScale = (size: number) => (width / guidelineBaseWidth) * size;
 const verticalScale = (size: number) => (height / guidelineBaseHeight) * size;
 const moderateScale = (size: number, factor = 0.5) =>
   size + (horizontalScale(size) - size) * factor;
+
+const paddingTop = getStatusBarHeight();
+const paddingBottom = getBottomSpace();
+const paddingHorizontal = horizontalScale(35);
 
 export const SIZES = {
   width: width,
@@ -25,6 +26,7 @@ export const SIZES = {
   padding: 24,
   paddingTop,
   paddingBottom,
+  paddingHorizontal,
   horizontalScale,
   verticalScale,
   moderateScale,

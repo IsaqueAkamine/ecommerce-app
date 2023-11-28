@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Cart, Favorites, Home } from "../screens";
+import { Cart, Favorites, Home, Profile } from "../screens";
 import { Image } from "react-native";
 import colors from "../constants/colors";
 import AppDrawer from "./AppDrawer";
@@ -76,7 +76,7 @@ export default function HomeTab() {
       />
       <Tab.Screen
         name="Profile"
-        component={Home}
+        component={Profile}
         options={{ tabBarStyle: { display: "none" } }}
       />
       <Tab.Screen
