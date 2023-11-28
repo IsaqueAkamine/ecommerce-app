@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 type TProduct = {
   category: string;
@@ -53,3 +53,9 @@ export const { addToCart, changeQuantity, clearBasket } = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const cartList = (state) => state.cart.products;
+
+export const selectTotal = (state) =>
+  state.cart.products.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );

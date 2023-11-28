@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, Platform } from "react-native";
 import {
   getStatusBarHeight,
   getBottomSpace,
@@ -14,7 +14,8 @@ const moderateScale = (size: number, factor = 0.5) =>
   size + (horizontalScale(size) - size) * factor;
 
 const paddingTop = getStatusBarHeight();
-const paddingBottom = getBottomSpace();
+const paddingBottom =
+  Platform.OS === "ios" ? getBottomSpace() : verticalScale(20);
 const paddingHorizontal = horizontalScale(35);
 
 export const SIZES = {

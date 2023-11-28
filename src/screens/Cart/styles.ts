@@ -44,7 +44,8 @@ export const OrderButtonText = styled.Text`
 `;
 
 export const CartContainer = styled.View`
-  padding: 0 ${SIZES.horizontalScale(40)}px;
+  padding: 0 ${SIZES.paddingHorizontal}px ${SIZES.paddingBottom}px
+    ${SIZES.paddingHorizontal}px;
   flex: 1;
 `;
 
@@ -86,4 +87,35 @@ export const QuantityContainer = styled.View`
 export const QuantityText = styled.Text`
   font-family: Raleway-Regular;
   font-size: ${SIZES.verticalScale(12)}px;
+`;
+
+export const TotalContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TotalText = styled.Text`
+  font-family: Raleway-Regular;
+  font-size: ${SIZES.verticalScale(16)}px;
+`;
+
+export const PriceText = styled.Text`
+  font-family: Raleway-Bold-700;
+  font-size: ${SIZES.verticalScale(20)}px;
+  color: ${colors.primary};
+`;
+
+export const CheckoutButton = styled.TouchableOpacity`
+  background-color: ${colors.primary};
+  padding: ${SIZES.verticalScale(20)}px;
+  align-items: center;
+  border-radius: ${SIZES.verticalScale(9)}px;
+  margin-top: ${SIZES.verticalScale(15)}px;
+`;
+
+export const CheckoutText = styled.Text`
+  font-family: Raleway-Bold-700;
+  font-size: ${SIZES.verticalScale(17)}px;
+  color: #fff;
 `;

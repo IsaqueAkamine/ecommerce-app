@@ -46,7 +46,7 @@ export const OrderButtonText = styled.Text`
 `;
 
 export const FavoriteContainer = styled.View`
-  padding: 0 ${SIZES.horizontalScale(40)}px;
+  padding: 0 ${SIZES.paddingHorizontal}px;
   flex: 1;
 `;
 

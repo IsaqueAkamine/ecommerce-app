@@ -11,6 +11,7 @@ import {
   cartList,
   changeQuantity,
   clearBasket,
+  selectTotal,
 } from "../../redux/Cart/cartSlice";
 import HeaderBar from "../../components/HeaderBar";
 import QuantityButton from "../../components/QuantityButton";
@@ -20,6 +21,8 @@ import { SIZES } from "../../constants/sizes";
 import {
   CardContainer,
   CartContainer,
+  CheckoutButton,
+  CheckoutText,
   Container,
   InfoContainer,
   InfoSection,
@@ -29,16 +32,20 @@ import {
   OrderButton,
   OrderButtonText,
   Price,
+  PriceText,
   ProductImage,
   QuantityContainer,
   QuantityText,
   Title,
+  TotalContainer,
+  TotalText,
 } from "./styles";
 
 const Cart: React.FC = () => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const dispatch = useDispatch();
   const cartProductList = useSelector(cartList);
+  const totalCart = useSelector(selectTotal);
   const hasProducts = cartProductList.length > 0;
 
   const NoFavoriteImg = require("../../assets/img/Saly-No-Cart.png");
@@ -130,9 +137,16 @@ const Cart: React.FC = () => {
           contentContainerStyle={{
             paddingTop: SIZES.verticalScale(14.5),
             gap: SIZES.verticalScale(14.5),
-            paddingBottom: SIZES.paddingBottom,
           }}
         />
+        <TotalContainer>
+          <TotalText>Total</TotalText>
+          <PriceText>$ {totalCart}</PriceText>
+        </TotalContainer>
+
+        <CheckoutButton>
+          <CheckoutText>Checkout</CheckoutText>
+        </CheckoutButton>
       </CartContainer>
     );
   };
