@@ -5,6 +5,7 @@ import { DrawerNavigationProp } from "@react-navigation/drawer";
 
 import useApi from "../../hooks/useApi";
 
+import DrawerSceneWrapper from "../../components/DrawerSceneWrapper";
 import SearchBar from "../../components/SearchBar";
 import Category from "./Category";
 import Product from "./Product";
@@ -76,47 +77,49 @@ const Home: React.FC = () => {
   }, [selectedCategory]);
 
   return (
-    <Container>
-      <HeaderContainer>
-        <HeaderMenuSearchContainer>
-          <HeaderMenuIconButton onPress={handleOpenDrawer}>
-            <HeaderMenuIcon source={MenuIcon} />
-          </HeaderMenuIconButton>
-          <SearchBar placeholder="Search" />
-        </HeaderMenuSearchContainer>
-        <TitleContainer>
-          <Title>Order online</Title>
-          <Title>collect in store</Title>
-        </TitleContainer>
-      </HeaderContainer>
+    <DrawerSceneWrapper>
+      <Container>
+        <HeaderContainer>
+          <HeaderMenuSearchContainer>
+            <HeaderMenuIconButton onPress={handleOpenDrawer}>
+              <HeaderMenuIcon source={MenuIcon} />
+            </HeaderMenuIconButton>
+            <SearchBar placeholder="Search" />
+          </HeaderMenuSearchContainer>
+          <TitleContainer>
+            <Title>Order online</Title>
+            <Title>collect in store</Title>
+          </TitleContainer>
+        </HeaderContainer>
 
-      <CategoryContainer>
-        <FlatList
-          data={categories}
-          renderItem={({ item, index }) => (
-            <Category
-              item={item}
-              key={index.toString()}
-              selected={selectedCategory}
-              changeCategory={() => handleChangeCategory(item)}
-            />
-          )}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: "10%", gap: 24 }}
-        />
-      </CategoryContainer>
+        <CategoryContainer>
+          <FlatList
+            data={categories}
+            renderItem={({ item, index }) => (
+              <Category
+                item={item}
+                key={index.toString()}
+                selected={selectedCategory}
+                changeCategory={() => handleChangeCategory(item)}
+              />
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: "10%", gap: 24 }}
+          />
+        </CategoryContainer>
 
-      <ProductContainer>
-        <FlatList
-          data={products}
-          renderItem={({ item, index }) => <Product {...item} />}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: "10%", gap: 34 }}
-        />
-      </ProductContainer>
-    </Container>
+        <ProductContainer>
+          <FlatList
+            data={products}
+            renderItem={({ item, index }) => <Product {...item} />}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: "10%", gap: 34 }}
+          />
+        </ProductContainer>
+      </Container>
+    </DrawerSceneWrapper>
   );
 };
 
