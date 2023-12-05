@@ -1,7 +1,13 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Image, Platform } from "react-native";
+import {
+  DrawerContentScrollView,
+  DrawerItem,
+  DrawerItemList,
+  createDrawerNavigator,
+} from "@react-navigation/drawer";
+import { Image, Platform, Text } from "react-native";
 import colors from "../constants/colors";
-import { Favorites, Home, Profile } from "../screens";
+import { SIZES } from "../constants/sizes";
+import { Favorites, Profile } from "../screens";
 import HomeStack from "./HomeStack";
 
 const Drawer = createDrawerNavigator();
@@ -11,6 +17,7 @@ const IconFavorite = require("../assets/icons/Heart.png");
 const IconMyOrders = require("../assets/icons/Buy.png");
 const IconDelivery = require("../assets/icons/Bag.png");
 const IconSettings = require("../assets/icons/Setting.png");
+const IconSignOut = require("../assets/icons/Logout.png");
 
 export default function AppDrawer() {
   const IconImage = ({ focused, icon }) => (
@@ -23,9 +30,32 @@ export default function AppDrawer() {
       }}
     />
   );
+
+  function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          icon={({ focused }) => (
+            <IconImage focused={focused} icon={IconSignOut} />
+          )}
+          label={() => (
+            <Text style={{ color: colors.dark_third }}>Sign out</Text>
+          )}
+          onPress={() => alert("Logged out")}
+          style={{
+            position: "relative",
+            top: SIZES.height / 2,
+          }}
+        />
+      </DrawerContentScrollView>
+    );
+  }
+
   return (
     <Drawer.Navigator
       initialRouteName="HomeStack"
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={({ route }) => ({
         headerShown: false,
         drawerActiveBackgroundColor: colors.transparent,
