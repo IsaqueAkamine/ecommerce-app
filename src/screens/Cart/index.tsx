@@ -55,6 +55,10 @@ const Cart: React.FC = () => {
     navigation.goBack();
   };
 
+  const handleCheckout = () => {
+    navigation.navigate("Checkout");
+  };
+
   const handleClearBasket = () => {
     Alert.alert("Are you sure?", "You want to clear basket?", [
       {
@@ -145,7 +149,7 @@ const Cart: React.FC = () => {
           <PriceText>$ {totalCart}</PriceText>
         </TotalContainer>
 
-        <CheckoutButton>
+        <CheckoutButton onPress={handleCheckout}>
           <CheckoutText>Checkout</CheckoutText>
         </CheckoutButton>
       </CartContainer>

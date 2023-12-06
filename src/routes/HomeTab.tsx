@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Cart, Favorites, Home, Profile } from "../screens";
+import { Favorites, Home, Profile } from "../screens";
 import { Image } from "react-native";
 import colors from "../constants/colors";
+import { CartStack } from "./CartStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ export default function HomeTab() {
                 }}
               />
             );
-          } else if (route.name === "Cart") {
+          } else if (route.name === "CartStack") {
             return (
               <Image
                 source={require("../assets/icons/Buy.png")}
@@ -79,8 +80,8 @@ export default function HomeTab() {
         options={{ tabBarStyle: { display: "none" } }}
       />
       <Tab.Screen
-        name="Cart"
-        component={Cart}
+        name="CartStack"
+        component={CartStack}
         options={{ tabBarStyle: { display: "none" } }}
       />
     </Tab.Navigator>
