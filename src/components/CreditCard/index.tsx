@@ -1,4 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  creditCardSelected,
+  selectCreditCard,
+} from "../../redux/Cart/cartSlice";
 
 import {
   CheckboxButton,
@@ -14,10 +19,12 @@ type TType = "Visa" | "Mastercard" | "Bank";
 
 type TCreditCard = {
   type: TType;
-  selected: TType;
 };
 
-const CreditCard: React.FC<TCreditCard> = ({ type, selected }) => {
+const CreditCard: React.FC<TCreditCard> = ({ type }) => {
+  const dispatch = useDispatch();
+  const isSelected = useSelector(creditCardSelected) === type;
+
   const CreditCardLogo = () => {
     switch (type) {
       case "Visa":
@@ -45,14 +52,12 @@ const CreditCard: React.FC<TCreditCard> = ({ type, selected }) => {
     }
   };
 
-  const isSelected = selected === type;
+  const handleSelectCreditCard = () => {
+    dispatch(selectCreditCard(type));
+  };
 
   return (
-    <CheckboxButton
-      onPress={() => {
-        console.log("pressed", type);
-      }}
-    >
+    <CheckboxButton onPress={handleSelectCreditCard}>
       <Container>
         <CheckboxContainer selected={isSelected}>
           {isSelected && <CheckboxSelected />}

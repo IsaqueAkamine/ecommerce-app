@@ -27,7 +27,6 @@ import {
 
 const Checkout: React.FC = () => {
   const totalCart = useSelector(selectTotal);
-  const aux = "Mastercard";
 
   const handleConfirmPay = () => {
     // navigation.navigate("Checkout");
@@ -40,7 +39,11 @@ const Checkout: React.FC = () => {
       <Container>
         <ShippingInfoContainer>
           <InfoTitle>Shipping information</InfoTitle>
-          <ChangeButton>
+          <ChangeButton
+            onPress={() => {
+              console.log("change pressed");
+            }}
+          >
             <ChangeText>change</ChangeText>
           </ChangeButton>
         </ShippingInfoContainer>
@@ -66,9 +69,9 @@ const Checkout: React.FC = () => {
         </ShippingInfoContainer>
 
         <PaymentCardContainer>
-          <CreditCard type="Visa" selected={aux} />
-          <CreditCard type="Mastercard" selected={aux} />
-          <CreditCard type="Bank" selected={aux} />
+          <CreditCard type="Visa" />
+          <CreditCard type="Mastercard" />
+          <CreditCard type="Bank" />
         </PaymentCardContainer>
 
         <TotalConfirmContainer>

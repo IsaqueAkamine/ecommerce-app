@@ -13,6 +13,7 @@ type TProduct = {
 
 const initialState = {
   products: [] as TProduct[],
+  selectedCreditCard: "",
 };
 
 const cartSlice = createSlice({
@@ -45,14 +46,19 @@ const cartSlice = createSlice({
     clearBasket: (state) => {
       state.products = initialState.products;
     },
+    selectCreditCard: (state, action) => {
+      state.selectedCreditCard = action.payload;
+    },
   },
 });
 
-export const { addToCart, changeQuantity, clearBasket } = cartSlice.actions;
+export const { addToCart, changeQuantity, clearBasket, selectCreditCard } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
 
 export const cartList = (state) => state.cart.products;
+export const creditCardSelected = (state) => state.cart.selectedCreditCard;
 
 export const selectTotal = (state) =>
   state.cart.products.reduce(
