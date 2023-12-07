@@ -44,7 +44,8 @@ export const OrderButtonText = styled.Text`
 `;
 
 export const CartContainer = styled.View`
-  padding: 0 ${SIZES.paddingHorizontal}px ${SIZES.paddingBottom}px
+  padding: 0 ${SIZES.paddingHorizontal}px
+    ${SIZES.paddingBottom + SIZES.verticalScale(14)}px
     ${SIZES.paddingHorizontal}px;
   flex: 1;
 `;
@@ -111,7 +112,7 @@ export const CheckoutButton = styled.TouchableOpacity`
   padding: ${SIZES.verticalScale(20)}px;
   align-items: center;
   border-radius: ${SIZES.verticalScale(9)}px;
-  margin-top: ${SIZES.verticalScale(15)}px;
+  margin-top: ${SIZES.verticalScale(25)}px;
 `;
 
 export const CheckoutText = styled.Text`

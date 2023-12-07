@@ -1,4 +1,5 @@
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 import Favorites from "./Favorites";
 import ForgotPassword from "./ForgotPassword";
 import Home from "./Home";
@@ -10,6 +11,7 @@ import SplashScreen from "./SplashScreen";
 
 export {
   Cart,
+  Checkout,
   Favorites,
   ForgotPassword,
   Home,
