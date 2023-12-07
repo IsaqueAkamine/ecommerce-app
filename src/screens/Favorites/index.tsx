@@ -8,7 +8,6 @@ import {
 import { useSelector } from "react-redux";
 
 import { favoriteList } from "../../redux/Products/productSlice";
-import DrawerSceneWrapper from "../../components/DrawerSceneWrapper";
 import HeaderBar from "../../components/HeaderBar";
 import { SIZES } from "../../constants/sizes";
 
@@ -90,12 +89,10 @@ const Favorites: React.FC = () => {
   };
 
   return (
-    <DrawerSceneWrapper>
-      <Container>
-        <HeaderBar title="Favorites" />
-        <RenderFavorites />
-      </Container>
-    </DrawerSceneWrapper>
+    <Container>
+      <HeaderBar title="Favorites" />
+      <RenderFavorites />
+    </Container>
   );
 };
 

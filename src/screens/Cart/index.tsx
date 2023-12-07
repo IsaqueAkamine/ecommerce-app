@@ -13,7 +13,6 @@ import {
   clearBasket,
   selectTotal,
 } from "../../redux/Cart/cartSlice";
-import DrawerSceneWrapper from "../../components/DrawerSceneWrapper";
 import HeaderBar from "../../components/HeaderBar";
 import QuantityButton from "../../components/QuantityButton";
 import colors from "../../constants/colors";
@@ -165,17 +164,15 @@ const Cart: React.FC = () => {
   };
 
   return (
-    <DrawerSceneWrapper>
-      <Container>
-        <HeaderBar
-          title="Basket"
-          rightIcon={hasProducts ? "delete" : ""}
-          rightIconColor={colors.favorite_primary}
-          handleRightButton={handleClearBasket}
-        />
-        <RenderBasket />
-      </Container>
-    </DrawerSceneWrapper>
+    <Container>
+      <HeaderBar
+        title="Basket"
+        rightIcon={hasProducts ? "delete" : ""}
+        rightIconColor={colors.favorite_primary}
+        handleRightButton={handleClearBasket}
+      />
+      <RenderBasket />
+    </Container>
   );
 };
 

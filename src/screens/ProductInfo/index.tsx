@@ -6,7 +6,6 @@ import Toast from "react-native-toast-message";
 import { favoriteList, setFavorite } from "../../redux/Products/productSlice";
 import { addToCart } from "../../redux/Cart/cartSlice";
 import colors from "../../constants/colors";
-import DrawerSceneWrapper from "../../components/DrawerSceneWrapper";
 import HeaderBar from "../../components/HeaderBar";
 import CustomButton from "../../components/CustomButton";
 
@@ -49,34 +48,32 @@ const ProductInfo: React.FC = () => {
   };
 
   return (
-    <DrawerSceneWrapper>
-      <Container>
-        <HeaderBar
-          rightIcon="favorite"
-          rightIconColor={iconColor()}
-          handleRightButton={handleAddToFavorite}
+    <Container>
+      <HeaderBar
+        rightIcon="favorite"
+        rightIconColor={iconColor()}
+        handleRightButton={handleAddToFavorite}
+      />
+      <ImageListContainer>
+        <ProductImage source={{ uri: product.image }} resizeMode="contain" />
+      </ImageListContainer>
+      <InfoProductContainer>
+        <Title>{product.title}</Title>
+        <Description numberOfLines={10}>{product.description}</Description>
+
+        <TotalContainer>
+          <TotalText>Total</TotalText>
+          <TotalPrice>$ {product.price}</TotalPrice>
+        </TotalContainer>
+
+        <CustomButton
+          description="Add to basket"
+          theme="dark"
+          onPress={handleAddtoCart}
         />
-        <ImageListContainer>
-          <ProductImage source={{ uri: product.image }} resizeMode="contain" />
-        </ImageListContainer>
-        <InfoProductContainer>
-          <Title>{product.title}</Title>
-          <Description numberOfLines={10}>{product.description}</Description>
-
-          <TotalContainer>
-            <TotalText>Total</TotalText>
-            <TotalPrice>$ {product.price}</TotalPrice>
-          </TotalContainer>
-
-          <CustomButton
-            description="Add to basket"
-            theme="dark"
-            onPress={handleAddtoCart}
-          />
-        </InfoProductContainer>
-        <Toast />
-      </Container>
-    </DrawerSceneWrapper>
+      </InfoProductContainer>
+      <Toast />
+    </Container>
   );
 };
 
