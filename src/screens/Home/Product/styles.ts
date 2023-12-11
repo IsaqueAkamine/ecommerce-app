@@ -8,7 +8,7 @@ export const Container = styled.Pressable`
 
 export const ProductImage = styled.Image`
   margin: ${SIZES.verticalScale(18)}px;
-  width: ${SIZES.width / 2.2}px;
+  width: ${SIZES.width / 2.5}px;
   aspect-ratio: 1;
   border-radius: 500px;
   z-index: 5;
@@ -18,7 +18,7 @@ export const ProductImage = styled.Image`
 export const ProductContainer = styled.View`
   position: relative;
   background-color: #fff;
-  width: ${SIZES.width / 1.5}px;
+  width: ${SIZES.width / 1.8}px;
   height: ${SIZES.verticalScale(250)}px;
   border-radius: ${SIZES.verticalScale(18)}px;
   top: -${SIZES.verticalScale(110)}px;
