@@ -13,7 +13,7 @@ export const Container = styled.View`
 
 export const ImageNoConnection = styled.Image`
   margin-top: -${SIZES.paddingHorizontal}px;
-  width: "100%";
+  width: ${SIZES.width}px;
   aspect-ratio: 1;
   opacity: 0.9;
 `;
