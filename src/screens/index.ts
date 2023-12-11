@@ -4,6 +4,7 @@ import Favorites from "./Favorites";
 import ForgotPassword from "./ForgotPassword";
 import Home from "./Home";
 import Login from "./Login";
+import Network from "./Network";
 import ProductInfo from "./ProductInfo";
 import Profile from "./Profile";
 import SignUp from "./SignUp";
@@ -16,6 +17,7 @@ export {
   ForgotPassword,
   Home,
   Login,
+  Network,
   ProductInfo,
   Profile,
   SignUp,
