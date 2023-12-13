@@ -8,6 +8,7 @@ import { ButtonIcon, Container, Icon, RightSpace, Title } from "./styles";
 type THeaderBar = {
   title?: string;
   search?: boolean;
+  searchFocus?: boolean;
   rightIcon?: string;
   rightIconColor?: string;
   handleRightButton?: () => void;
@@ -16,6 +17,7 @@ type THeaderBar = {
 const HeaderBar: React.FC<THeaderBar> = ({
   title,
   search,
+  searchFocus,
   rightIcon,
   rightIconColor,
   handleRightButton,
@@ -35,9 +37,9 @@ const HeaderBar: React.FC<THeaderBar> = ({
       break;
   }
 
-  const RenderCenterInfo = () => {
+  const RenderCenterInfo = ({ searchFocus = false }) => {
     if (search) {
-      return <SearchBar />;
+      return <SearchBar searchFocus={searchFocus} />;
     } else if (title) {
       return <Title>{title}</Title>;
     } else {
@@ -60,7 +62,7 @@ const HeaderBar: React.FC<THeaderBar> = ({
       <Pressable onPress={() => navigation.goBack()}>
         <Icon source={require("../../assets/icons/ArrowLeft.png")} />
       </Pressable>
-      <RenderCenterInfo />
+      <RenderCenterInfo searchFocus={searchFocus} />
       <RenderRightIcon />
     </Container>
   );
