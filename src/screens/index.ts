@@ -7,6 +7,7 @@ import Login from "./Login";
 import Network from "./Network";
 import ProductInfo from "./ProductInfo";
 import Profile from "./Profile";
+import SearchProduct from "./SearchProduct";
 import SignUp from "./SignUp";
 import SplashScreen from "./SplashScreen";
 
@@ -20,6 +21,7 @@ export {
   Network,
   ProductInfo,
   Profile,
+  SearchProduct,
   SignUp,
   SplashScreen,
 };

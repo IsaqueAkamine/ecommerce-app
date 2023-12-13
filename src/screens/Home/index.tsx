@@ -59,6 +59,10 @@ const Home: React.FC = () => {
     setSelectedCategory(category);
   };
 
+  const handleSearchProduct = () => {
+    navigation.navigate("SearchProduct");
+  };
+
   const handleOpenDrawer = () => {
     navigation.openDrawer();
   };
@@ -82,7 +86,7 @@ const Home: React.FC = () => {
           <HeaderMenuIconButton onPress={handleOpenDrawer}>
             <HeaderMenuIcon source={MenuIcon} />
           </HeaderMenuIconButton>
-          <SearchBar placeholder="Search" />
+          <SearchBar placeholder="Search" onPressIn={handleSearchProduct} />
         </HeaderMenuSearchContainer>
         <TitleContainer>
           <Title>Order online</Title>
