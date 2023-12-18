@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable } from "react-native";
+import { Pressable, TextInputProps } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import SearchBar from "../SearchBar";
@@ -9,6 +9,8 @@ type THeaderBar = {
   title?: string;
   search?: boolean;
   searchFocus?: boolean;
+  onSearchChange?: (text: string) => void;
+  inputText?: string;
   rightIcon?: string;
   rightIconColor?: string;
   handleRightButton?: () => void;
@@ -18,6 +20,8 @@ const HeaderBar: React.FC<THeaderBar> = ({
   title,
   search,
   searchFocus,
+  onSearchChange,
+  inputText,
   rightIcon,
   rightIconColor,
   handleRightButton,
@@ -39,7 +43,13 @@ const HeaderBar: React.FC<THeaderBar> = ({
 
   const RenderCenterInfo = ({ searchFocus = false }) => {
     if (search) {
-      return <SearchBar searchFocus={searchFocus} />;
+      return (
+        <SearchBar
+          searchFocus={searchFocus}
+          onSearchChange={onSearchChange}
+          inputText={inputText}
+        />
+      );
     } else if (title) {
       return <Title>{title}</Title>;
     } else {
