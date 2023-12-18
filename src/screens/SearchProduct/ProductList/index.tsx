@@ -55,6 +55,7 @@ const ProductList: React.FC<TProductList> = ({ items }) => {
     <Container>
       <FlatList
         data={items}
+        showsVerticalScrollIndicator={false}
         ListHeaderComponent={() => <Title>Found {items.length} results</Title>}
         ListHeaderComponentStyle={{ margin: 24 }}
         renderItem={({ item }) => renderItem(item)}
