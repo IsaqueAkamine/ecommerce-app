@@ -5,6 +5,8 @@ import {
   createDrawerNavigator,
 } from "@react-navigation/drawer";
 import { Image, Platform, Text } from "react-native";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/Auth/authSlice";
 import colors from "../constants/colors";
 import { SIZES } from "../constants/sizes";
 import { Favorites, Profile } from "../screens";
@@ -32,6 +34,7 @@ export default function AppDrawer() {
   );
 
   function CustomDrawerContent(props) {
+    const dispatch = useDispatch();
     return (
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
@@ -42,7 +45,7 @@ export default function AppDrawer() {
           label={() => (
             <Text style={{ color: colors.dark_third }}>Sign out</Text>
           )}
-          onPress={() => alert("Logged out")}
+          onPress={() => dispatch(logout())}
           style={{
             position: "relative",
             top: SIZES.height / 2,

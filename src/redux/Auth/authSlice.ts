@@ -14,9 +14,7 @@ const authSlice = createSlice({
       state.user = user;
       state.token = accessToken;
     },
-    logout: (state) => {
-      state = initialState;
-    },
+    logout: (state) => initialState,
     init: (state, action) => {
       // validate is user has logged before (async storage)
     },
